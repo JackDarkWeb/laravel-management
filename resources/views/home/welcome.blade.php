@@ -11,7 +11,11 @@
             <div class='col-md-10 offset-md-1'>
                 <h1 class='text-white text-center text-lg-left'><span style=''>Bienvenue sur</span> <br> <span class='text-uppercase' style='font-weight: bold; color: #00a8e6;'>Management Consulting</span>  <span style='font-weight: 500; color: #8cc41f;'>International</span></h1>
 
+<<<<<<< HEAD
                 <a href='/service' class='btn btn-outline-primary px-4 py-3 text-uppercase '>Consultez Nos services</a>
+=======
+                <a href='{{route('service')}}' class='btn btn-outline-primary px-4 py-3 text-uppercase '>Consultez Nos services</a>
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
             </div>
         </div>
     </div>
@@ -62,7 +66,11 @@
     <div class='row'>
         <div class='col-xl-6'>
             <div class='row '>
+<<<<<<< HEAD
                 <img src="/public/app/images/adeolu-eletu-lWVoW8LpcEQ-unsplash.jpg" alt="" class='img-fluid'>
+=======
+                <img src="{{asset('app/images/adeolu-eletu-lWVoW8LpcEQ-unsplash.jpg')}}" alt="" class='img-fluid'>
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
             </div>
         </div>
 
@@ -126,14 +134,22 @@
 
             <div class="card-deck">
                 <div class="card mb-3">
+<<<<<<< HEAD
                     <img src="/public/app/images/1646617.svg" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+=======
+                    <img src="{{asset('app/images/1646617.svg')}}" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     <div class="card-body">
                         <h5 class="card-title text-center">AUDIT INTERNE</h5>
                         <p class="card-text text-center">Elle est une activité indépendante et objective qui permet de donner à une organisation une assurance sur le degré de maîtrise de ses opérations, lui apporte ses conseils pour les améliorer, et contribue à créer de la valeur ajoutée.</p>
                     </div>
                 </div>
                 <div class="card mb-3">
+<<<<<<< HEAD
                     <img src="/public/app/images/imgbin-internal-audit-internal.png" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+=======
+                    <img src="{{asset('app/images/imgbin-internal-audit-internal.png')}}" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     <div class="card-body">
                         <h5 class="card-title text-center">ETUDE ECONOMIQUE</h5>
                         <p class="card-text text-center">Elle consiste à réaliser pour des organisations des études, évaluations d’ordre économique et social comme les enquêtes, les études de marché.</p>
@@ -143,7 +159,11 @@
                 <div class='w-100 d-lg-none'></div>
 
                 <div class="card mb-3">
+<<<<<<< HEAD
                     <img src="/public/app/images/icon-accompagne-1-1.png" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+=======
+                    <img src="{{asset('app/images/icon-accompagne-1-1.png')}}" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     <div class="card-body">
                         <h5 class="card-title text-center">APPUI ET CONSEIL</h5>
                         <p class="card-text text-center">Nous assistons les entreprises et autres en conseil, installation du système comptable.</p>
@@ -153,7 +173,11 @@
                 <div class='w-100  d-none d-lg-block'></div>
 
                 <div class="card mb-3">
+<<<<<<< HEAD
                     <img src="/public/app/images/Queoval-Formation-Icon.png" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+=======
+                    <img src="{{asset('app/images/Queoval-Formation-Icon.png')}}" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     <div class="card-body">
                         <h5 class="card-title text-center">FORMATION</h5>
                         <p class="card-text text-center">Nous sommes spécialisés dans la formation en gestion et finance. La formation en management, entreprenariat, logiciel comptable, plan d’affaires (business plan).</p>
@@ -163,7 +187,11 @@
                 <div class='w-100 d-lg-none'></div>
 
                 <div class="card mb-3">
+<<<<<<< HEAD
                     <img src="/public/app/images/oved-je-cherche-un-emploi.png" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+=======
+                    <img src="{{asset('app/images/oved-je-cherche-un-emploi.png')}}" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     <div class="card-body">
                         <h5 class="card-title text-center">RECRUTEMENT</h5>
                         <p class="card-text text-center">Il consiste à recruter pour les organisations du personnel (employés, stagiaires). Nous sommes également spécialisés dans le placement d’autres types de personnel  </p>
@@ -171,7 +199,11 @@
                 </div>
 
                 <div class="card mb-3">
+<<<<<<< HEAD
                     <img src="/public/app/images/256-256-127fcc1580aab7e738bb360e83168a9d.png" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+=======
+                    <img src="{{asset('app/images/256-256-127fcc1580aab7e738bb360e83168a9d.png')}}" class="card-img-top h-25 w-25 mx-auto mt-3" alt="...">
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     <div class="card-body">
                         <h5 class="card-title text-center">CONCEPTION ET MONTAGE</h5>
                         <p class="card-text text-center">Nous sommes spécialisés dans la conception de mini logiciel comptable adapté aux activités commerciales, agropastorales. Nous sommes également spécialisés dans le montage des plans d’affaires, projets, établissement des Etats financiers </p>
@@ -194,7 +226,11 @@
                 </div>
 
                 <div class='row'>
+<<<<<<< HEAD
                     <a href='/contact' class='btn btn-md p-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Contactez-nous maintenant</a>
+=======
+                    <a href='{{route('contact')}}' class='btn btn-md p-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Contactez-nous maintenant</a>
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                 </div>
             </div>
             <div class='col-md-6 border border-light pb-4 mb-4'>
@@ -206,7 +242,11 @@
                 </div>
 
                 <div class='row'>
+<<<<<<< HEAD
                     <a href='/announce/recent' class='btn btn-md py-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Consulter les annonces</a>
+=======
+                    <a href='{{route('recent')}}' class='btn btn-md py-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Consulter les annonces</a>
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                 </div>
             </div>
 
@@ -214,8 +254,13 @@
     </div>
 </section>
 
+<<<<<<< HEAD
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/public/app/js/main.js"></script>
+=======
+
+
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
 
 @include('layouts.footer')
 

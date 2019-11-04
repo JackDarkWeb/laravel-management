@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('home.welcome');
+<<<<<<< HEAD
 });
 
 Route::get('about', function (){
@@ -52,6 +53,47 @@ Route::group(['prefix' => 'announce'], function(){
 
 });
 
+=======
+})->name('home');
+
+Route::get('about', function (){
+
+    return view('home.about');
+})->name('about');
+
+Route::get('contact', function (){
+
+    return view('home.contact');
+})->name('contact');
+
+
+Route::get('service', function (){
+
+    return view('home.service');
+})->name('service');
+
+Route::group(['prefix' => 'announce'], function(){
+
+    Route::get('/', function (){
+
+    });
+
+    Route::get('{slug}-{id}', function ($slug, $id){
+
+        /*
+        $post = [];
+        return response()->json($post);
+        redirect()->back();
+        */
+    });
+
+    Route::get('recent', function (){
+
+    })->name('recent');
+
+});
+
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
 
 
 

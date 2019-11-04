@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 @extends('layouts.default', ['title' => 'Home'])
+=======
+@extends('layouts.default', ['title' => 'Contact me'])
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
 
 
 @section('content')
 
+<<<<<<< HEAD
 @include('layouts.nav')
+=======
+@include('layouts.nav-page')
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
 
 <section class=''>
     <div class='container py-5'>

@@ -3,7 +3,11 @@
 
 @section('content')
 
+<<<<<<< HEAD
     @include('layouts.nav')
+=======
+    @include('layouts.nav-page')
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
 
     <section class='' id='our-services'>
         <div style='background: rgba(0,0,0,0.3)' class='py-5'>
@@ -84,7 +88,11 @@
                     </div>
 
                     <div class='row'>
+<<<<<<< HEAD
                         <a href='contact' class='btn btn-md p-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Contactez-nous maintenant</a>
+=======
+                        <a href='{{route('contact')}}' class='btn btn-md p-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Contactez-nous maintenant</a>
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     </div>
                 </div>
                 <div class='col-md-6 border border-light pb-4 mb-4'>
@@ -96,7 +104,11 @@
                     </div>
 
                     <div class='row'>
+<<<<<<< HEAD
                         <a href='announce/recent' class='btn btn-md py-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Consulter les annonces</a>
+=======
+                        <a href='{{route('recent')}}' class='btn btn-md py-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Consulter les annonces</a>
+>>>>>>> ab3c16d98c69387f8a200fe62bcf7fe3e9bf0e4d
                     </div>
                 </div>
 
