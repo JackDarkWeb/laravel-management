@@ -12,9 +12,60 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.welcome');
+})->name('home');
+
+Route::get('about', function (){
+
+    return view('home.about');
+})->name('about');
+
+Route::get('contact', function (){
+
+    return view('home.contact');
+})->name('contact');
+
+
+Route::get('service', function (){
+
+    return view('home.service');
+})->name('service');
+
+Route::group(['prefix' => 'announce'], function(){
+
+    Route::get('/', function (){
+
+    });
+
+    Route::get('{slug}-{id}', function ($slug, $id){
+
+        /*
+        $post = [];
+        return response()->json($post);
+        redirect()->back();
+        */
+    });
+
+    Route::get('recent', function (){
+
+    })->name('recent');
+
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function () {
@@ -22,4 +73,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
 });
+*/
 
