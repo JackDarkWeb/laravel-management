@@ -1,4 +1,4 @@
-<h1>TEst de voir cette nav-page</h1>
+
 <div class=''>
     <nav class="navbar navbar-expand-lg w-100 py-3" id='navbar' style="z-index: 10000; background-color: rgba(0,0,0,0.7); position: fixed; top: 0;">
         <a class="navbar-brand font-weight-bold" href="{{route('home')}}"><img src="{{asset('app/images/My-logo.png')}}" alt="" class='img-fluid'></a>
@@ -30,7 +30,7 @@
 <section id='header-page'>
     <div class=''>
         <div class='container py-5'>
-            <h2 class='text-white font-weight-bold text-uppercase'>{{$title}}</h2>
+            <h2 class='text-white font-weight-bold text-uppercase'>{{isset($title) ? $title : ''}}</h2>
         </div>
     </div>
 </section>
