@@ -11,7 +11,7 @@
             <div class='col-md-10 offset-md-1'>
                 <h1 class='text-white text-center text-lg-left'><span style=''>Bienvenue sur</span> <br> <span class='text-uppercase' style='font-weight: bold; color: #00a8e6;'>Management Consulting</span>  <span style='font-weight: 500; color: #8cc41f;'>International</span></h1>
 
-                <a href='{{route('service')}}' class='btn btn-outline-primary px-4 py-3 text-uppercase '>Consultez Nos services</a>
+                <a href='service' class='btn btn-outline-primary px-4 py-3 text-uppercase '>Consultez Nos services</a>
             </div>
         </div>
     </div>
@@ -194,7 +194,7 @@
                 </div>
 
                 <div class='row'>
-                    <a href='{{route('contact')}}' class='btn btn-md p-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Contactez-nous maintenant</a>
+                    <a href='contact' class='btn btn-md p-md-2 px-md-4 btn-outline-info mx-auto font-weight-bold'>Contactez-nous maintenant</a>
                 </div>
             </div>
             <div class='col-md-6 border border-light pb-4 mb-4'>

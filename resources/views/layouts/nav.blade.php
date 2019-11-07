@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto text-uppercase font-weight-bold">
                 <li class="nav-item px-3 active">
-                    <a class="nav-link" href="{{route('home')}}">Accueil BBBB <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('home')}}">Accueil<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item px-3">
                     <a class="nav-link" href="{{route('about')}}">A propos</a>

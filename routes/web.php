@@ -11,50 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home.welcome');
-})->name('home');
 
-Route::get('about', function (){
-
-    return view('home.about');
-})->name('about');
-
-Route::get('contact', function (){
-
-    return view('home.contact');
-})->name('contact');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('about', 'HomeController@about')->name('about');
+Route::get('service', 'HomeController@service')->name('service');
+Route::get('contact', 'HomeController@contact')->name('contact');
+Route::post('contact', 'HomeController@store')->name('contact.store');
 
 
-Route::get('service', function (){
+Route::group(['prefix' => 'announces'], function(){
 
-    return view('home.service');
-})->name('service');
+    Route::get('/', 'AnnounceController@index')->name('announces');
+    Route::get('recent', 'AnnounceController@recent')->name('recent');
+    Route::get('{id}/{slug}', 'AnnounceController@show')->name('announce')->where(['id' => '[0-9]+']);
+    Route::get('category/{category}', 'AnnounceController@category')->name('category');
 
-Route::group(['prefix' => 'announce'], function(){
+});
 
-    Route::get('/', function (){
+Route::group(['prefix' => 'admin'], function (){
 
-    })->name('announce');
-
-    Route::get('{slug}-{id}', function ($slug, $id){
-
-        /*
-        $post = [];
-        return response()->json($post);
-        redirect()->back();
-        */
-    });
-
-    Route::get('recent', function (){
-
-        return view('announces.recent_announce');
-    })->name('recent');
-
-    Route::get('category/{category}', function ($category){
-            dd($category);
-    })->name('category');
-
+    Route::get('/', 'Admin\\AdminController@index')->name('admin.index');
+    Route::post('/', 'Admin\\AdminController@index')->name('admin.index')->middleware('admin');
+    Route::get('admin-lock', 'Admin\\AdminController@create')->name('admin.lock');
+    Route::post('admin-lock', 'Admin\\AdminController@store')->name('admin.store');
 });
 
 

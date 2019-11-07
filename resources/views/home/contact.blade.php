@@ -24,7 +24,10 @@
                 </div>
 
                 <div class='row'>
-                    <form method="post" class='col-12' action='' id="form-contact">
+                    <form method="post" class='col-12' action='' id="form-contac">
+
+                        @csrf
+
                         <div class="row">
                             <div class="col">
                                 <input type="text" name="first_name" id="first-name" class="form-control" placeholder="Votre Prenom" value=""/>
