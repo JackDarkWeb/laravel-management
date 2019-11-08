@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\admin\AdminLockFormRequest;
 use App\Http\Requests\admin\AdminLoginFormRequest;
+use App\Models\Announce;
+use App\Models\Contact;
 use App\Services\admin\AdminLoginService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -42,18 +45,30 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.admin-lock');
+        $count = [];
+
+        $messages = Contact::all();
+        $count['message'] = $messages->count();
+
+        $announces = Announce::with('category')->latest()->get();
+        $count['announce'] = $announces->count();
+
+        return view('admin.admin-lock', [
+            'messages' => $messages,
+            'announces' => $announces,
+            'count'    => $count,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param AdminLockFormRequest $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(AdminLockFormRequest $request)
     {
-        //dd($request);
+
     }
 
     /**
@@ -75,7 +90,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.edit');
     }
 
     /**
@@ -87,7 +102,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($id);
     }
 
     /**

@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin'], function (){
     Route::post('/', 'Admin\\AdminController@checkAdmin')->name('admin.store');
     Route::get('admin-lock', 'Admin\\AdminController@create')->name('admin.lock')->middleware('admin');
     Route::post('admin-lock', 'Admin\\AdminController@store')->name('admin.lock.store');
+    Route::get('admin-lock/{id}/edit', 'Admin\\AdminController@edit')->name('admin.lock.edit');
+    Route::patch('admin-lock/{id}', 'Admin\\AdminController@update')->name('admin.lock.update');
 });
 
 

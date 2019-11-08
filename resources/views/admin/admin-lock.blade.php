@@ -20,11 +20,11 @@
 
                     <a class="nav-link btn-outline-primary" id="v-pills-messages-tab" data-toggle="pill"
                        href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages
-                        <span class="badge badge-success"></span></a>
+                        <span class="badge badge-success">{{ $count['message'] }}</span></a>
 
                     <a class="nav-link btn-outline-primary" id="v-pills-settings-tab" data-toggle="pill"
                        href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Liste
-                        des annonces <span class="badge badge-success"></span></a>
+                        des annonces <span class="badge badge-success">{{ $count['announce'] }}</span></a>
 
                     <a class="nav-link btn-outline-primary" id="v-pills-messages-tab" data-toggle="pill"
                        href="#v-pills-categories" role="tab" aria-controls="v-pills-messages" aria-selected="false">Categories </a>
@@ -41,7 +41,11 @@
                                 <h2 class='row py-5'>Creer une annonce</h2>
                                 <div class='row'>
 
-                                    <form method="post" class='col-12 mb-5' action=''>
+                                    @if(session()->has('message'))
+                                        <div class="alert alert-success">{{session('message')}}</div>
+                                    @endif
+
+                                    <form method="post" class='col-12 mb-5' action='{{route('admin.lock.store')}}' enctype="multipart/form-data">
 
                                         @csrf
 
@@ -50,47 +54,52 @@
 
                                         <div class="form-group">
                                             <label for="inputAddress">Titre *</label>
-                                            <input type="text" class="form-control" id="inputAddress"
-                                                   placeholder="Titre de l'annonce">
+                                            <input type="text" name="title" id="title" class="form-control"
+                                                   placeholder="Titre de l'annonce" value="{{old('title')}}">
+
+                                            <span class="text-danger error-title font-italic">{{$errors->first('title')}}</span>
                                         </div>
+
                                         <div class="form-group">
                                             <label for="exSelect">Categorie *</label>
-                                            <select class="form-control" id="exSelect">
+                                            <select name="category" class="form-control" id="category" style="{{ $errors->first('category') ? "border-color : red" : ''}}">
                                                 <option value=''>-Choisir une categorie-</option>
-                                                <option value=''>EMPLOI</option>
-                                                <option value=''>SERVICES</option>
-                                                <option value=''>Cours & Formation</option>
-                                                <option value=''>MATÉRIEL PROFESSIONNEL</option>
-                                                <option value=''>ACHAT - VENTE</option>
-                                                <option value=''>Immobilier</option>
-                                                <option value=''>Véhicules</option>
-                                                <option value=''>Electronique-Média</option>
+                                                <option value='Récrutement'>Récrutement</option>
+                                                <option value='Conseils'>Conseils</option>
+                                                <option value='Création-de-site-web'>Création de site web</option>
+                                                <option value='MATÉRIEL-PROFESSIONNEL'>MATÉRIEL PROFESSIONNEL</option>
+                                                <option value='Audit-Formation'>Audit & Formation</option>
+                                                <option value='Immobilier-Mobilier'>Immobilier Mobilier</option>
+                                                <option value='Véhicules'>Véhicules</option>
+                                                <option value='Electronique-Média'>Electronique-Média</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="SelectType">Type Annonceur</label>
-                                            <select class="form-control" id="SelectType">
+                                            <select name="type" id="type" class="form-control" style="{{ $errors->first('type') ? "border-color : red" : ''}}">
                                                 <option value=''>-Aucun-</option>
-                                                <option value=''>Particulier</option>
-                                                <option value=''>Entreprise</option>
+                                                <option value='particulier'>Particulier</option>
+                                                <option value='entreprise'>Entreprise</option>
                                             </select>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-8">
                                                 <label for="inputPrice">Prix</label>
-                                                <input type="text" class="form-control" id="inputPrice">
+                                                <input type="text" name="price" id="price" class="form-control" value="{{old('price')}}">
+                                                <span class="text-danger error-title font-italic">{{$errors->first('price')}}</span>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="inputDevise">Devise</label>
-                                                <select id="inputDevise" class="form-control">
-                                                    <option value='' selected>CFA</option>
-                                                    <option>...</option>
+                                                <select name="devise" id="devise" class="form-control" style="{{ $errors->first('devise') ? "border-color : red" : ''}}">
+                                                    <option value='fcfa' selected>FCFA</option>
+                                                    <option value='euro' selected>EURO</option>
+                                                    <option value='dollar' selected>Dollar</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="ControlTextarea">Description</label>
-                                            <textarea class="form-control" id="ControlTextarea" rows="3"></textarea>
+                                            <textarea name="description" class="form-control" id="description" rows="3" style="{{ $errors->first('description') ? "border-color : red" : ''}}"></textarea>
                                         </div>
 
                                         <p class='font-weight-bold'>Details Contact</p>
@@ -98,30 +107,31 @@
 
                                         <div class="form-group">
                                             <label for="inputAddress">Addresse</label>
-                                            <input type="text" class="form-control" id="inputAddress"
-                                                   placeholder="1234 Rue principal">
+                                            <input type="text" name="address" id="address" class="form-control"
+                                                   placeholder="1234 Rue principal" value="{{old('address')}}">
+                                            <span class="text-danger error-title font-italic">{{$errors->first('address')}}</span>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="InputCountry">Pays</label>
-                                                <select class="form-control" id="inputCountry">
+                                                <select name="country" class="form-control" id="country" style="{{ $errors->first('country') ? "border-color : red" : ''}}">
                                                     <option value=''>-Choisir un pays-</option>
-                                                    <option value=''>Benin</option>
-                                                    <option value=''>Mali</option>
+                                                    <option value='benin'>Benin</option>
+                                                    <option value='mali'>Mali</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputState">Ville</label>
-                                                <select id="inputState" class="form-control">
-                                                    <option>-Choisir une vile-</option>
-                                                    <option>...</option>
-                                                </select>
+                                            <div class="form-group">
+                                                <label for="city">Ville</label>
+                                                <input type="text" name="city" id="city" class="form-control"
+                                                       placeholder="1234 Rue principal" value="{{old('city')}}">
+                                                <span class="text-danger error-title font-italic">{{$errors->first('city')}}</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputPhone">Numero de telephone *</label>
-                                            <input type="text" class="form-control" id="inputPhone"
-                                                   placeholder="Votre numero de telephone">
+                                            <input type="text" name="phone" class="form-control" id="phone"
+                                                   placeholder="Votre numero de telephone" value="{{old('phone')}}">
+                                            <span class="text-danger error-title font-italic">{{$errors->first('phone')}}</span>
                                         </div>
 
                                         <p class='font-weight-bold'>Media</p>
@@ -129,22 +139,22 @@
 
                                         <div class="form-row" id='mediaFile'>
                                             <div class='form-group col-auto'>
-                                                <input type="file" class="form-control-file" id="ControlFile1">
+                                                <input type="file" name="file[]" class="form-control-file" id="ControlFile1">
                                                 <label for='ControlFile1'><i class="fa fa-plus" style='font-size: 70px;'
                                                                              aria-hidden="true"></i></label>
                                             </div>
                                             <div class='form-group col-auto'>
-                                                <input type="file" class="form-control-file" id="ControlFile2">
+                                                <input type="file" name="file[]" class="form-control-file" id="ControlFile2">
                                                 <label for='ControlFile2'><i class="fa fa-plus" style='font-size: 70px;'
                                                                              aria-hidden="true"></i></label>
                                             </div>
                                             <div class='form-group col-auto'>
-                                                <input type="file" class="form-control-file" id="ControlFile3">
+                                                <input type="file" name="file[]" class="form-control-file" id="ControlFile3">
                                                 <label for='ControlFile3'><i class="fa fa-plus" style='font-size: 70px;'
                                                                              aria-hidden="true"></i></label>
                                             </div>
                                             <div class='form-group col-auto'>
-                                                <input type="file" class="form-control-file" id="ControlFile4">
+                                                <input type="file" name="file[]" class="form-control-file" id="ControlFile4">
                                                 <label for='ControlFile4'><i class="fa fa-plus" style='font-size: 70px;'
                                                                              aria-hidden="true"></i></label>
                                             </div>
@@ -159,8 +169,8 @@
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary mb-5"><i class="fa fa-plus"
-                                                                                              aria-hidden="true"></i>
+                                        <button type="submit" name="share" class="btn btn-primary mb-5"><i class="fa fa-plus"
+                                                                                                           aria-hidden="true"></i>
                                             Publier l'annonce
                                         </button>
                                         <button type="reset" class="btn btn-danger mb-5">Annuler</button>
@@ -178,18 +188,23 @@
                     <!-- Messages -->
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
 
-
+                        @forelse($messages as $message)
                             <div class="content-message-contact mt-4">
 
                                 <div class="d-inline">
                                     <p>
                                         <img src="{{asset('app/images/profile.jpg')}}" style="width:30px; height: 30px; border-radius: 50%">
-                                        <strong>Nom Prenom (email)</strong><br/>
-                                        <span>Message</span><br/>
-                                        <i class="text-primary">date</i>
+                                        <strong>{{$message->last_name.' '.$message->first_name. ' ('.$message->email.')'}}</strong><br/>
+                                        <span>{{$message->message}}</span><br/>
+                                        <i class="text-primary">{{$message->created_at->format('d-m-Y H:i')}}</i>
                                     </p>
                                 </div>
                             </div>
+                        @empty
+
+                            {{"Vous n'avez aucun message qctuellement"}}
+
+                        @endforelse
 
 
                     </div>
@@ -200,19 +215,21 @@
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
                          aria-labelledby="v-pills-settings-tab">
 
-
+                        @forelse($announces as $announce)
                         <div class="card ">
-                            <h5 class="card-header">category</h5>
+                            <h5 class="card-header">{{$announce->category->name}}</h5>
                             <div class="card-body">
-                                <h5 class="card-title">title</h5>
-                                <p class="card-text">description</p>
+                                <h5 class="card-title">{{$announce->title}}</h5>
+                                <p class="card-text">{{$announce->description}}</p>
 
-                                <a href="#" class="btn btn-danger text-uppercase font-weight-bold">Supprimer</a>
-                                <a href="#" class="btn btn-success text-uppercase font-weight-bold">Publier</a>
-                                <a href="#" class="btn btn-secondary text-uppercase font-weight-bold">Editer</a>
+                                <a href="{{$announce->id}}" class="btn btn-danger text-uppercase font-weight-bold">Supprimer</a>
+                                <a href="{{$announce->active}}" class="btn btn-success text-uppercase font-weight-bold">{{($announce->active == 1) ? 'Désactiver' :'Publier'}}</a>
+                                <a href="{{route('admin.lock.edit', ['id' => $announce->id])}}" class="btn btn-secondary text-uppercase font-weight-bold">Editer</a>
                             </div>
                         </div><br/>
-
+                        @empty
+                            {{ 'Pas d\'annonce actuellement' }}
+                        @endforelse
 
                     </div>
 
@@ -314,9 +331,9 @@
     <script>
         $(function () {
 
-            $('.logout').click(function (e) {
-                e.preventDefault();
-               window.location = '/logout';
+            $('.logout').click(function (event) {
+                event.preventDefault();
+               //window.location = '/logout';
             })
         })
     </script>

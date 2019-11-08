@@ -18,9 +18,9 @@ class AdminLoginService
 
             if(password_verify($request->get('password'), $admin->password)){
 
+                $request->session()->put('email_or_phone' , $request->get('email_or_phone'));
+                $request->session()->put('password' , $request->get('password'));
                 $error = true;
-
-                //$request->session()->put('email_or_phone' , 'root@yahoo.fr');
 
             }else{
                 $error = "Password incorrect";

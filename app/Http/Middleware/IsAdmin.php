@@ -16,8 +16,8 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-
-        if($request->session()->get('email') !== 'root@yahoo.fr'){
+        $password = bcrypt('sudoroot');
+        if($request->session()->get('email_or_phone') !== 'root@yahoo.fr' && $request->session()->get('password') !== $password){
             return redirect(route('admin.index'));
         }
 

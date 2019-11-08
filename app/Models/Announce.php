@@ -51,4 +51,5 @@ class Announce extends Model
     }
 
 
+
 }
