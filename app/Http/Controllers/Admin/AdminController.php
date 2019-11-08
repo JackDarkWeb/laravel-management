@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\admin\AdminLoginFormRequest;
+use App\Services\admin\AdminLoginService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 
@@ -15,6 +18,20 @@ class AdminController extends Controller
      */
     public function index()
     {
+        return view('admin.admin');
+    }
+
+    /**
+     * @param AdminLoginFormRequest $request
+     * @return RedirectResponse
+     */
+    function checkAdmin(AdminLoginFormRequest $request){
+
+        $response = AdminLoginService::checkAdmin($request);
+        if($response === true){
+            return redirect()->route('admin.lock');
+        }
+        session()->flash('message', $response);
         return view('admin.admin');
     }
 
@@ -36,7 +53,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
     }
 
     /**

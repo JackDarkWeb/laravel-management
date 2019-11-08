@@ -15,6 +15,10 @@
         <div class="col-12 col-md-8 offset-md-2 btn border p-4">
 
 
+            @if(session('message'))
+                <div class="alert alert-danger"> {{session('message')}}</div>
+
+            @endif
 
             <div class="row py-4">
                 <h4 class='mx-auto'>Administration </h4>
@@ -24,29 +28,29 @@
             </div>
             <div class="row">
 
-                <form method="post" action="" class="col-sm-12" id="form-login">
+                <form method="post" action="{{route('admin.store')}}" class="col-sm-12" id="form-logi">
 
                     @csrf
 
                     <div class="form-group row mb-4">
                         <label for="email" class="mr-4">Identifiant</label>
                         <div class="col-md-8 col-sm-12">
-                            <input type="text" name="email_or_phone" class="form-control" id="email" value="" placeholder="E-mail ou numéro de téléphone">
-                            <span class="text-danger error-email font-italic"></span>
+                            <input type="text" name="email_or_phone" class="form-control" id="email" value="{{old('email_or_phone')}}" placeholder="E-mail ou numéro de téléphone">
+                            <span class="text-danger error-email font-italic">{{$errors->first('email_or_phone')}}</span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="password" class="">Mot de passe</label>
                         <div class="col-md-8 col-sm-12">
                             <div class='input-group' id="desk">
-                                <input type="password" name="password" class="form-control" id="password" value="" placeholder="Mot de passe">
+                                <input type="password" name="password" class="form-control" id="password" value="{{old('password')}}" placeholder="Mot de passe">
 
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fa fa-eye" aria-hidden="true" style="cursor:pointer;" onclick="showHidePassword('#desk #password')"></i><i class="fa fa-eye-slash d-none" aria-hidden="true" style="cursor:pointer;" onclick="showHidePassword('#desk #password')"></i></div>
                                 </div>
                             </div>
 
-                            <span class="text-danger error-password font-italic"></span>
+                            <span class="text-danger error-password font-italic">{{ $errors->first('password') }}</span>
                         </div>
                     </div>
 

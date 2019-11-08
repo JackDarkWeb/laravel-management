@@ -16,13 +16,11 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        $response = $next($request);
 
-        dd($response);
-        if($request->get('email_or_phone') === 'root@yahoo.fr'){
-            return redirect(route('admin-lock'));
+        if($request->session()->get('email') !== 'root@yahoo.fr'){
+            return redirect(route('admin.index'));
         }
 
-        return $response;
+        return $next($request);
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\home\ContactFormRequest;
+use App\Services\home\ContactService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -30,6 +33,7 @@ class HomeController extends Controller
      * @return Factory|View
      */
     function contact(){
+
         return view('home.contact');
     }
 
@@ -42,10 +46,12 @@ class HomeController extends Controller
 
 
     /**
-     * @param Request $request
+     * @param ContactFormRequest $request
+     * @return RedirectResponse
      */
-    function store(Request $request){
+    function store(ContactFormRequest $request){
 
-        dd($request->all());
+        ContactService::insertContact($request);
+        return redirect()->route('contact')->with(['message' => "<div class='alert alert-success'>Votre message a bien été envoyé</div>"]);
     }
 }

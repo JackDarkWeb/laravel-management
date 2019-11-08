@@ -31,9 +31,9 @@ Route::group(['prefix' => 'announces'], function(){
 Route::group(['prefix' => 'admin'], function (){
 
     Route::get('/', 'Admin\\AdminController@index')->name('admin.index');
-    Route::post('/', 'Admin\\AdminController@index')->name('admin.index')->middleware('admin');
-    Route::get('admin-lock', 'Admin\\AdminController@create')->name('admin.lock');
-    Route::post('admin-lock', 'Admin\\AdminController@store')->name('admin.store');
+    Route::post('/', 'Admin\\AdminController@checkAdmin')->name('admin.store');
+    Route::get('admin-lock', 'Admin\\AdminController@create')->name('admin.lock')->middleware('admin');
+    Route::post('admin-lock', 'Admin\\AdminController@store')->name('admin.lock.store');
 });
 
 

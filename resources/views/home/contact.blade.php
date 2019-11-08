@@ -17,41 +17,43 @@
 
                 <div class="result"></div>
 
-
+                @if(session('message'))
+                    {{session('message')}}
+                @endif
 
                 <div class='row'>
                     <h2 class='mx-auto mb-5'>Formulaire de contact</h2>
                 </div>
 
                 <div class='row'>
-                    <form method="post" class='col-12' action='' id="form-contac">
+                    <form method="post" class='col-12' action='{{route('contact.store')}}' id="form-contact">
 
                         @csrf
 
                         <div class="row">
                             <div class="col">
-                                <input type="text" name="first_name" id="first-name" class="form-control" placeholder="Votre Prenom" value=""/>
-                                <span class="text-danger error-first-name font-italic"></span>
+                                <input type="text" name="first_name" id="first-name" class="form-control" placeholder="Votre Prenom" value="{{old('first_name')}}"/>
+                                <span class="text-danger error-first-name font-italic">{{$errors->first('first_name')}}</span>
                             </div>
                             <div class="col">
-                                <input type="text" name="last_name" id="last-name" class="form-control" placeholder="Votre Nom" value="">
-                                <span class="text-danger error-last-name font-italic"></span>
+                                <input type="text" name="last_name" id="last-name" class="form-control" placeholder="Votre Nom" value="{{old('last_name')}}">
+                                <span class="text-danger error-last-name font-italic">{{$errors->first('last_name')}}</span>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label ></label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="">
-                            <span class="text-danger error-email font-italic"></span>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{old('email')}}">
+                            <span class="text-danger error-email font-italic">{{$errors->first('email')}}</span>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="subject" class="form-control" id="subject" placeholder="Quel est le sujet du message?" value="">
-                            <span class="text-danger error-subject font-italic"></span>
+                            <input type="text" name="subject" class="form-control" id="subject" placeholder="Quel est le sujet du message?" value="{{old('subject')}}">
+                            <span class="text-danger error-subject font-italic">{{$errors->first('subject')}}</span>
                         </div>
 
                         <div class="form-group">
-                            <textarea name="message" class="form-control" placeholder='Votre Message' id="message" rows="3" style=""></textarea>
+                            <textarea name="message" class="form-control" placeholder='Votre Message' id="message" rows="3" style="{{ $errors->first('message') ? "border-color : red" : ''}}">{{old('message')}}</textarea>
                         </div>
 
                         <button type="submit" name="submit" class='btn btn-primary text-uppercase px-4'>Envoyer</button>
