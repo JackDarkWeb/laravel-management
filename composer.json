@@ -12,7 +12,7 @@
     "ext-pdo": "*",
     "php": "^7.1.3",
     "fideloper/proxy": "^4.0",
-    "laravel/framework": "5.8.*",
+    "laravel/framework": "6.18.*",
     "laravel/tinker": "^1.0",
     "mordisacks/laravel-force-https": "^1.0"
   },
